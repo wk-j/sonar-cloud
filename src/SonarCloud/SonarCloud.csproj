@@ -5,4 +5,9 @@
     <ProjectGuid>{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C847}</ProjectGuid>
     <!-- <Features>strict</Features> -->
   </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CodeCracker.CSharp" Version="1.1.0" />
+  </ItemGroup>
 </Project>
