@@ -11,6 +11,11 @@ namespace SonarCloud {
             return color;
         }
 
+        public Color GetNextColor2(Color input) {
+            var color = input + 1;
+            return color;
+        }
+
         public static void LockNull() {
             lock (null) {
                 Console.WriteLine("This is bug");
