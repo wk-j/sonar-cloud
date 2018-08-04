@@ -2,13 +2,13 @@ using System;
 using System.IO;
 
 namespace SonarCloud {
+    public enum Color { Green, Blue }
+
     public class Service {
 
-        enum Color { Green, Blue }
-
-        public static void Enummmm() {
-            var color = Color.Green - 1;
-            Console.WriteLine(color);
+        public Color GetNextColor(Color input) {
+            var color = input + 1;
+            return color;
         }
 
         public static void LockNull() {
@@ -20,6 +20,7 @@ namespace SonarCloud {
         public static void A() {
             using (var fs = new FileStream("path", FileMode.OpenOrCreate))
             using (var sr = new StreamReader(fs)) {
+                Console.Write(sr.ReadLine());
             }
         }
     }

@@ -16,3 +16,8 @@ publish
 .project
 target
 BenchmarkDotNet.Artifacts
+
+coverage.json
+coverage.opencover.xml
+
+.sonarqube
