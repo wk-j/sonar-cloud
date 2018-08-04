@@ -10,9 +10,8 @@ namespace SonarCloud {
         }
 
         public static void A() {
-            using (var fs = new FileStream("path", FileMode.OpenOrCreate)) { // RCS1005
-                using (var sr = new StreamReader(fs)) {
-                }
+            using (var fs = new FileStream("path", FileMode.OpenOrCreate))
+            using (var sr = new StreamReader(fs)) {
             }
         }
     }
