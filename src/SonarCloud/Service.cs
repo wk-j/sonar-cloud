@@ -18,7 +18,7 @@ namespace SonarCloud {
 
         public static void LockNull() {
             lock (null) {
-                Console.WriteLine("This is bug");
+                Console.WriteLine("This is ...");
             }
         }
 

@@ -11,12 +11,16 @@ install:
 before_build:
   - cmd: dotnet --version
 build_script:
-  - cmd: dotnet publish src/SonarCloud/SonarCloud.csproj
+  - cmd: dotnet publish $env:mainProject
 after_build:
 clone_depth: 1
 test_script:
   - cmd: dotnet-sonarscanner begin /k:"sonar-cloud" /d:sonar.organization="wk-j-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="940f6517a5a823b166a31a9173557dedbdbc9401" /d:sonar.cs.opencover.reportsPaths="tests/SonarCloud.Tests/coverage.opencover.xml"
-  - cmd: dotnet test tests/SonarCloud.Tests/SonarCloud.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+  - cmd: dotnet test $env:testProject /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
   - cmd: dotnet-sonarscanner end /d:sonar.login="940f6517a5a823b166a31a9173557dedbdbc9401"
 on_finish :
 deploy: off
+
+environment:
+  testProject: tests/SonarCloud.Tests/SonarCloud.Tests.csproj
+  mainProject: src/SonarCloud/SonarCloud.csproj
