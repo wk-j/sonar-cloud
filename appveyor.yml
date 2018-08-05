@@ -15,12 +15,14 @@ build_script:
 after_build:
 clone_depth: 1
 test_script:
-  - cmd: dotnet-sonarscanner begin /k:"sonar-cloud" /d:sonar.organization="wk-j-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="940f6517a5a823b166a31a9173557dedbdbc9401" /d:sonar.cs.opencover.reportsPaths="tests/SonarCloud.Tests/coverage.opencover.xml"
+  - cmd: dotnet-sonarscanner begin /k:"sonar-cloud" /d:sonar.organization="wk-j-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login=%token% /d:sonar.cs.opencover.reportsPaths=%reportPath%
   - cmd: dotnet test %testProject% /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-  - cmd: dotnet-sonarscanner end /d:sonar.login="940f6517a5a823b166a31a9173557dedbdbc9401"
+  - cmd: dotnet-sonarscanner end /d:sonar.login=%token%
 on_finish :
 deploy: off
 
 environment:
   testProject: tests/SonarCloud.Tests/SonarCloud.Tests.csproj
   mainProject: src/SonarCloud/SonarCloud.csproj
+  reportPath: tests/SonarCloud.Tests/coverage.opencover.xml
+  token: 940f6517a5a823b166a31a9173557dedbdbc9401
