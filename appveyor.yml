@@ -25,4 +25,5 @@ environment:
   testProject: tests/SonarCloud.Tests/SonarCloud.Tests.csproj
   mainProject: src/SonarCloud/SonarCloud.csproj
   reportPath: tests/SonarCloud.Tests/coverage.opencover.xml
-  token: 940f6517a5a823b166a31a9173557dedbdbc9401
+  token:
+    secure: ox2bdFIAT1AU1fgbkpTwPIeO+qRjvjp9mG6RTM3jlLkIxKmkI4FsPZQhBGdbm8ne
